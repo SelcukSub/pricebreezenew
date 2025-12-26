@@ -67,19 +67,20 @@ export function FilterPanel({ filters, onFilterChange, availableBrands, availabl
           onClick={onClose}
         />
       )}
-      <div className={`w-64 bg-white border-r border-gray-200 p-6 space-y-6 overflow-y-auto
-        lg:fixed lg:top-[145px] lg:left-0 lg:h-[calc(100vh-145px)] lg:z-20
-        fixed top-0 left-0 h-full z-50 transition-transform duration-300 lg:translate-x-0
-        ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+      <div className={`w-64 bg-white p-6 space-y-6
+        fixed top-0 left-0 h-full z-50 transition-transform duration-300 overflow-y-auto
+        lg:static lg:h-auto lg:overflow-visible lg:bg-transparent lg:p-0 lg:space-y-0
+        ${isOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
-        <div className="lg:hidden flex items-center justify-between mb-4">
+        <div className="lg:hidden flex items-center justify-between mb-4 p-0">
           <h2 className="text-lg font-bold text-gray-900">Filters</h2>
           <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
             <X className="w-5 h-5 text-gray-600" />
           </button>
         </div>
 
-      <div>
+      <div className="space-y-6 lg:space-y-6">
+        <div>
         <button
           onClick={() => toggleSection('price')}
           className="w-full flex items-center justify-between mb-3 hover:text-blue-600 transition-colors group"
@@ -109,7 +110,7 @@ export function FilterPanel({ filters, onFilterChange, availableBrands, availabl
           />
         </div>
         )}
-      </div>
+        </div>
 
       <div>
         <button
@@ -241,6 +242,7 @@ export function FilterPanel({ filters, onFilterChange, availableBrands, availabl
       >
         Clear All Filters
       </button>
+      </div>
       </div>
     </>
   );
